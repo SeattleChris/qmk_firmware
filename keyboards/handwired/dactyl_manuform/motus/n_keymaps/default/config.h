@@ -1,6 +1,5 @@
 /*
 Copyright 2012 Jun Wako <wakojun@gmail.com>
-Copyright 2015 Jack Humbert
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,26 +16,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #pragma once
-
-#include "config_common.h"
-#define PRODUCT         Dactyl Motus
-
-/* key matrix size */
+// #define USE_SERIAL
+#define USE_I2C
+// #define MASTER_LEFT
+// #define MASTER_RIGHT
+#define EE_HANDS
 // Rows are doubled-up
-#define MATRIX_ROWS 12
-#define MATRIX_COLS 6
-
-// wiring of each half
-#define MATRIX_COL_PINS { D4, C6, D7, E6, B4, B5 }
-#define MATRIX_ROW_PINS { F6, F7, B1, B3, B2, B6 }
-#define DIODE_DIRECTION COL2ROW
-
-// WS2812 RGB LED strip input and number of LEDs
-// #define RGB_DI_PIN D3
-// #define RGBLED_NUM 12
-
-/* define if matrix has ghost */
-//#define MATRIX_HAS_GHOST
-
-/* number of backlight levels */
-// #define BACKLIGHT_LEVELS 3
+// #define DEBOUNCE 5
+// #define TAPPING_TOGGLE 3
+// #define ONESHOT_TAP_TOGGLE 3
+// #define PERMISSIVE_HOLD
+// #define IGNORE_MOD_TAP_INTERRUPT
+// #define TAPPING_TERM 300
+// #ifdef RGBLED_NUM
+// #  undef RGBLED_NUM
+// #endif
+// #define RGBLED_NUM 54
+// #define RGBLIGHT_LIMIT_VAL 200
+// #define RGBLIGHT_ANIMATIONS
+// // #define RGBLIGHT_LED_MAP { 11,10,9,8,7,6,5,4,3,2,1,0,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26 }
+// #define RGBLIGHT_SPLIT 27

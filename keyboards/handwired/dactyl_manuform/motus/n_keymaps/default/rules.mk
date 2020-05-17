@@ -1,0 +1,7 @@
+# KEY_LOCK_ENABLE = yes
+# CONSOLE_ENABLE = no
+# EXTRAFLAGS += -flto
+LEADER_ENABLE = yes
+
+# BOOTLOADER=qmk-dfu
+# RGBLIGHT_ENABLE = yes

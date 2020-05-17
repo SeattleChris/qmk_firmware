@@ -21,5 +21,28 @@
     "[markdown]": {
         "editor.trimAutoWhitespace": false,
         "files.trimTrailingWhitespace": false
-    }
+    },
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#550C49",
+        "titleBar.activeBackground": "#771166",
+        "titleBar.activeForeground": "#FFFBFE"
+    },
+    "cSpell.words": [
+        "BSPC",
+        "LALT",
+        "LCMD",
+        "LCTL",
+        "LFNC",
+        "LSFT",
+        "Motus",
+        "NLCK",
+        "PAUS",
+        "RALT",
+        "RCTL",
+        "RFNC",
+        "RSFT",
+        "SCLN",
+        "SLSH"
+    ],
+    "C_Cpp.errorSquiggles": "Disabled"
 }
