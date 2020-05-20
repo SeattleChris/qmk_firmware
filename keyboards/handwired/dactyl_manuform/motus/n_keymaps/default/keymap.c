@@ -9,6 +9,7 @@ enum layer_names {
     _FUNCTION,
     _NUMS,
 };
+
 enum unicode_names {
     IBANG,
     IIBNG,
@@ -84,20 +85,19 @@ const uint32_t PROGMEM unicode_map[] = {
 
     // [max]= 0x10FFFF,
 };
-// Key	    Description
-// OUT_AUTO Toggle Bluetooth on/off
 
 // #define BANGIR XP(BANG, IRONY) // XP(0, 1)
 #define INBANG XP(IBANG, IIBNG)  // XP(0, 1)
 #define LFNC TG(_SYMBOLS)
 #define RFNC TG(_SYMBOLS)
+#define NUMS TG(_NUMS)
+
 // #define MR1 MO(_RAISE)
 // #define MR2 MO(_LOWER)
 #define MR1 (DM_PLY1, DM_REC1, DM_RSTP)  // Dynamic Macro 1: Play, Start-Record, Stop-Record
 // #define MR2 (DM_PLY2, DM_REC2, DM_RSTP)  // Dynamic Macro 2
 #define FOLD (LCTL(KC_LCBR), LCTL(KC_RCBR), LCTL(KC_LPRN), LCTL(KC_RPRN))
 // #define MR2B ()
-#define LEAD (KC_LEAD, KC_SLCK)
 #define UNDMIN (KC_UNDS, KC_MINS)
 #define COMMPL (KC_COMM, KC_PLUS)
 #define DOTEXL (KC_DOT, KC_EXLM)
@@ -142,14 +142,30 @@ const uint32_t PROGMEM unicode_map[] = {
 #define MED_DN (KC_AUDIO_VOL_DOWN, KC_MEDIA_PREV_TRACK)
 #define BT_SYS (OUT_AUTO, KC_SYSTEM_POWER)
 #define MS_SPD (KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2)
-// #define RESET
+
+enum combos {
+    SHIFT_LOCK,
+    FUNC_LAYER,
+    NUM_LOCK,
+    SCROLL_LOCK
+}
+const uint16_t PROGMEM shift_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
+const uint16_t PROGMEM func_combo[] = {LFNC, RFNC, COMBO_END};
+const uint16_t PROGMEM nums_combo[] = {RFNC, NUMS, COMBO_END};
+const uint16_t PROGMEM scrl_combo[] = {LFNC, KC_LEAD, COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
+  [SHIFT_LOCK]  = COMBO(shift_combo, KC_CAPSLOCK),
+  [FUNC_LAYER]  = COMBO(func_combo, TG(_FUNCTION)),
+  [NUM_LOCK]    = COMBO(nums_combo, KC_NLCK),
+  [SCROLL_LOCK] = COMBO(scrl_combo, KC_SLCK),
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_5x6(
     FOLD   , KC_Q  , KC_W  , KC_E  , KC_R  , KC_T  ,               KC_Y  , KC_U  , KC_I  , KC_O  , KC_P  ,KC_PAUS,
     KC_LCTL, KC_A  , KC_S  , KC_D  , KC_F  , KC_G  ,               KC_H  , KC_J  , KC_K  , KC_L  ,KC_SCLN,KC_RCTL,
     KC_LSFT, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,               KC_N  , KC_M  , COMMPL, DOTEXL,KC_SLSH,KC_RSFT,
-             LEAD  , KC_INS, KC_ESC,                                              KC_PSCR, MR1   ,KC_NLCK,
+            KC_LEAD, KC_INS, KC_ESC,                                              KC_PSCR, MR1   , NUMS  ,
                                  UNDMIN , KC_TAB,KC_BSPC,    KC_DEL , KC_SPC, KC_ENT,
                                  KC_LCMD, LFNC  ,KC_LALT,    KC_RALT, RFNC  ,KC_RCMD
                ),
