@@ -255,8 +255,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  // If keycode not in in custom_keycodes, or not pressed, return normal (do nothing), else:
-  if (keycode >= FIRST_CUSTOM_KEYCODE && keycode < LAST_CUSTOM_KEYCODE && record->event.pressed) {
+  // If keycode not in in custom_keycodes return normal (do nothing), else:
+  if (keycode >= FIRST_CUSTOM_KEYCODE && keycode < LAST_CUSTOM_KEYCODE) {
     position = 0;
     saved_mods = get_mods()
     if (saved_mods & MOD_BIT(KC_LSHIFT) || saved_mods & MOD_BIT(KC_RSHIFT)){ position += 1; }
@@ -264,11 +264,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (saved_mods & MOD_BIT(KC_LALT) || saved_mods & MOD_BIT(KC_RALT)){     position += 4; }
     if (saved_mods & MOD_BIT(KC_LCMD) || saved_mods & MOD_BIT(KC_RCMD)){     position += 8; }
     clear_mods();
-    register_code(custom_map[keycode][position])
-    unregister_code(custom_map[keycode][position])
+    if (record->event.pressed) {
+        register_code(custom_map[keycode][position])
+    } else {
+      unregister_code(custom_map[keycode][position])
+    }
     clear_mods();
     set_mods(saved_mods);
-    return false;
+    return false; // Skip all further processing of this key
   }
   return true;
 };
