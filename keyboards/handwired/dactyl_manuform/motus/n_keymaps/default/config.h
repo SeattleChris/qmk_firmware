@@ -37,3 +37,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // // #define RGBLIGHT_LED_MAP { 11,10,9,8,7,6,5,4,3,2,1,0,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26 }
 // #define RGBLIGHT_SPLIT 27
 #define COMBO_COUNT 4
+#define CUSTOM_COUNT 47
+#define CUSTOM_MAX_DEPTH 4
