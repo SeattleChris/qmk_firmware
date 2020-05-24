@@ -42,7 +42,7 @@ enum unicode_names {
     wave,
     uthmb,
     dthmb,
-    100,
+    hund,
     frog,
     dick,
     hitc,
@@ -104,7 +104,7 @@ const uint32_t PROGMEM unicode_map[] = {
     [wave]  = 0x1F44B, // 👋 (waving hand)
     [uthmb] = 0x1F44D, // 👍
     [dthmb] = 0x1F44E, // 👎
-    [100]   = 0x1F4AF, // 💯 (hundred points)
+    [hund]  = 0x1F4AF, // 💯 (hundred points)
     [frog]  = 0x1F438, // 🐸 (frog)
     [dick]  = 0x1F346, // 🍆 (eggplant)
     [hitc]  = 0x1F3AF, // 🎯 (	direct hit)
@@ -136,8 +136,8 @@ const uint32_t PROGMEM unicode_map[] = {
 };
 
 enum custom_keycodes {
-    FIRST_CUSTOM_KEYCODE = SAFE_RANGE,
-    FOLD = _FIRST_CUSTOM_KEYCODE,
+    SR = SAFE_RANGE,
+    FOLD,
     UNDMIN,
     COMMPL,
     DOTEXL,
@@ -184,54 +184,54 @@ enum custom_keycodes {
     MR1,
     LAST_CUSTOM_KEYCODE
 };
-const uint16_t PROGMEM custom_map[CUSTOM_COUNT][CUSTOM_MAX_DEPTH] = {
-    //[NAME] = {key, shift_k,    ctl_k,    shift_ctl_k,    alt_k,    shift_alt_k,    alt_ctl_k,    shift_alt_ctl_k,\
-    //        cmd_k, shift_cmd_k,ctl_cmd_k,shift_ctl_cmd_k,alt_cmd_k,shift_alt_cmd_k,alt_ctl_cmd_k,shift_alt_ctl_cmd_k}
-    [FOLD]   = {LCTL(KC_LCBR), LCTL(KC_RCBR), LCTL(KC_LPRN), LCTL(KC_RPRN)},
-    [UNDMIN] = {KC_UNDS, KC_MINS},
-    [COMMPL] = {KC_COMM, KC_PLUS},
-    [DOTEXL] = {KC_DOT, KC_EXLM},
-    [ZERONE] = {KC_0, KC_1, LCTL(KC_N)},
-    [BSLSPI] = {KC_BSLASH, X(PI)},
-    [PWR]    = {KC_CIRC, LCTL(KC_CIRC), LCTL(KC_Y)},
-    [QUOTCL] = {KC_QUOT, LCTL(KC_QUOT), LCTL(KC_W)},
-    [DQTCBR] = {KC_DQT,  LCTL(KC_LBRC), LCTL(KC_RBRC)},
-    [ORAND]  = {KC_PIPE, KC_AMPR},
-    [ASTPRC] = {KC_ASTR, KC_PERC},
-    [ATPHA]  = {KC_AT, X(ALPHA), LCTL(KC_A), LCTL(KC_AT)},
-    [PAREN]  = {KC_LPRN, KC_RPRN, LCTL(KC_S)},
-    [BRAC]   = {KC_LBRC, KC_RBRC, LCTL(KC_D)},
-    [CBRAC]  = {KC_LCBR, KC_RCBR, LCTL(KC_F)},
-    [INEQ]   = {KC_LT, KC_RT, LCTL(KC_G)},
-    [HASHDO] = {KC_HASH, LCTL(KC_HASH), LCTL(KC_Z), LSFT(LCTL(KC_Z))},
-    [XYCUT]  = {KC_X, KC_Y, LCTL(KC_X)},
-    [DLRCP]  = {KC_DLR, LCTL(KC_DLR), LCTL(KC_C)},
-    [IJPST]  = {KC_I, KC_J, LCTL(KC_V)},
-    [EQBETA] = {KC_EQUAL, X(BETA), LCTL(KC_B), LCTL(KC_EQUAL)},
-    [PAD_EQ] = {KC_PEQL,  X(BETA), LCTL(KC_B), LCTL(KC_PEQL)},
-    [PAD_0]  = {KC_P0, X(OMEGA)},
-    [PAD_1]  = {KC_P1, X(MICRO)},
-    [PAD_2]  = {KC_P2, X(STDEV)},
-    [PAD_3]  = {KC_P3, X(GAMMA)},
-    [PAD_4]  = {KC_P4, X(DELTA)},
-    [PAD_5]  = {KC_P5, X(DEG)},
-    [PAD_6]  = {KC_P6, X(LPHI)},
-    [PAD_7]  = {KC_P7, X(SQRT)},
-    [PAD_8]  = {KC_P8, X(INF)},
-    [PAD_9]  = {KC_P9, X(UPHI)},
-    [PADCMM] = {KC_PCMM, X(SUM)},
-    [PADDOT] = {KC_PDOT, KC_EXLM},
-    [PWRT]   = {KC_CIRC, X(SQRT)},
-    [MINSPI] = {KC_PMNS, X(PI)},
-    [PLSAST] = {KC_PPLS, KC_PAST},
-    [DIVPRC] = {KC_PSLS, KC_PERC},
-    [BRIGHT] = {KC_BRIGHTNESS_UP, KC_BRIGHTNESS_DOWN},
-    [MED_UP] = {KC_AUDIO_VOL_UP, KC_MEDIA_NEXT_TRACK},
-    [MED_MP] = {KC_MUTE, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_STOP},
-    [MED_DN] = {KC_AUDIO_VOL_DOWN, KC_MEDIA_PREV_TRACK},
-    [BT_SYS] = {OUT_AUTO, KC_SYSTEM_POWER},
-    [MS_SPD] = {KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2},
-    [MR1]    = {DM_PLY1, DM_REC1, DM_RSTP},  // Dynamic Macro 1: Play, Start-Record, Stop-Record
+const uint16_t PROGMEM custom_map[][CUSTOM_MAX_DEPTH] = {
+    // [NAME] = {key, shift_k,    ctl_k,    shift_ctl_k,    alt_k,    shift_alt_k,    alt_ctl_k,    shift_alt_ctl_k,
+    //         cmd_k, shift_cmd_k,ctl_cmd_k,shift_ctl_cmd_k,alt_cmd_k,shift_alt_cmd_k,alt_ctl_cmd_k,shift_alt_ctl_cmd_k}
+    [FOLD - SR]   = {LCTL(KC_LCBR), LCTL(KC_RCBR), LCTL(KC_LPRN), LCTL(KC_RPRN)},
+    [UNDMIN - SR] = {KC_UNDS, KC_MINS},
+    [COMMPL - SR] = {KC_COMM, KC_PLUS},
+    [DOTEXL - SR] = {KC_DOT, KC_EXLM},
+    [ZERONE - SR] = {KC_0, KC_1, LCTL(KC_N)},
+    [BSLSPI - SR] = {KC_BSLASH, X(PI)},
+    [PWR - SR]    = {KC_CIRC, LCTL(KC_CIRC), LCTL(KC_Y)},
+    [QUOTCL - SR] = {KC_QUOT, LCTL(KC_QUOT), LCTL(KC_W)},
+    [DQTCBR - SR] = {KC_DQT,  LCTL(KC_LBRC), LCTL(KC_RBRC)},
+    [ORAND - SR]  = {KC_PIPE, KC_AMPR},
+    [ASTPRC - SR] = {KC_ASTR, KC_PERC},
+    [ATPHA - SR]  = {KC_AT, X(ALPHA), LCTL(KC_A), LCTL(KC_AT)},
+    [PAREN - SR]  = {KC_LPRN, KC_RPRN, LCTL(KC_S)},
+    [BRAC - SR]   = {KC_LBRC, KC_RBRC, LCTL(KC_D)},
+    [CBRAC - SR]  = {KC_LCBR, KC_RCBR, LCTL(KC_F)},
+    [INEQ - SR]   = {KC_LEFT_ANGLE_BRACKET, KC_RIGHT_ANGLE_BRACKET, LCTL(KC_G)},
+    [HASHDO - SR] = {KC_HASH, LCTL(KC_HASH), LCTL(KC_Z), LSFT(LCTL(KC_Z))},
+    [XYCUT - SR]  = {KC_X, KC_Y, LCTL(KC_X)},
+    [DLRCP - SR]  = {KC_DLR, LCTL(KC_DLR), LCTL(KC_C)},
+    [IJPST - SR]  = {KC_I, KC_J, LCTL(KC_V)},
+    [EQBETA - SR] = {KC_EQUAL, X(BETA), LCTL(KC_B), LCTL(KC_EQUAL)},
+    [PAD_EQ - SR] = {KC_PEQL,  X(BETA), LCTL(KC_B), LCTL(KC_PEQL)},
+    [PAD_0 - SR]  = {KC_P0, X(OMEGA)},
+    [PAD_1 - SR]  = {KC_P1, X(MICRO)},
+    [PAD_2 - SR]  = {KC_P2, X(STDEV)},
+    [PAD_3 - SR]  = {KC_P3, X(GAMMA)},
+    [PAD_4 - SR]  = {KC_P4, X(DELTA)},
+    [PAD_5 - SR]  = {KC_P5, X(DEG)},
+    [PAD_6 - SR]  = {KC_P6, X(LPHI)},
+    [PAD_7 - SR]  = {KC_P7, X(SQRT)},
+    [PAD_8 - SR]  = {KC_P8, X(INF)},
+    [PAD_9 - SR]  = {KC_P9, X(UPHI)},
+    [PADCMM - SR] = {KC_PCMM, X(SUM)},
+    [PADDOT - SR] = {KC_PDOT, KC_EXLM},
+    [PWRT - SR]   = {KC_CIRC, X(SQRT)},
+    [MINSPI - SR] = {KC_PMNS, X(PI)},
+    [PLSAST - SR] = {KC_PPLS, KC_PAST},
+    [DIVPRC - SR] = {KC_PSLS, KC_PERC},
+    [BRIGHT - SR] = {KC_BRIGHTNESS_UP, KC_BRIGHTNESS_DOWN},
+    [MED_UP - SR] = {KC_AUDIO_VOL_UP, KC_MEDIA_NEXT_TRACK},
+    [MED_MP - SR] = {KC_MUTE, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_STOP},
+    [MED_DN - SR] = {KC_AUDIO_VOL_DOWN, KC_MEDIA_PREV_TRACK},
+    [BT_SYS - SR] = {OUT_AUTO, KC_SYSTEM_POWER},
+    [MS_SPD - SR] = {KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2},
+    [MR1 - SR]    = {DM_PLY1, DM_REC1, DM_RSTP},  // Dynamic Macro 1: Play, Start-Record, Stop-Record
 };
 
 #define LFNC TG(_SYMBOLS)
@@ -279,7 +279,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                ),
   [_MOUSE] = LAYOUT_5x6(
     _______,_______,_______,_______,_______,KC_BTN2,              MS_SPD ,KC_WH_U,KC_MS_U,KC_WH_R,KC_BTN4,_______,
-    _______,_______,_______,_______,_______,_______,              KC_WH_L,KC_MS_L,KC_MS_D,KC_MS_R,_______,_______,_______,
+    _______,_______,_______,_______,_______,_______,              KC_WH_L,KC_MS_L,KC_MS_D,KC_MS_R,_______,_______,
     _______,_______,_______,_______,_______,KC_BTN1,              KC_BTN3,KC_WH_D,_______,_______,_______,_______,
             _______,_______,_______,                                              _______,_______,_______,
                                  _______,_______,_______,    _______,_______,_______,
@@ -305,18 +305,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // If keycode not in in custom_keycodes return normal (do nothing), else:
-  if (keycode >= FIRST_CUSTOM_KEYCODE && keycode < LAST_CUSTOM_KEYCODE) {
-    position = 0;
-    saved_mods = get_mods();
+  if (keycode >= SR && keycode < LAST_CUSTOM_KEYCODE) {
+    uint8_t position = 0;
+    uint8_t saved_mods = get_mods();
     if (saved_mods & MOD_BIT(KC_LSHIFT) || saved_mods & MOD_BIT(KC_RSHIFT)){ position += 1; }
     if (saved_mods & MOD_BIT(KC_LCTL) || saved_mods & MOD_BIT(KC_RCTL)){     position += 2; }
     if (saved_mods & MOD_BIT(KC_LALT) || saved_mods & MOD_BIT(KC_RALT)){     position += 4; }
     if (saved_mods & MOD_BIT(KC_LCMD) || saved_mods & MOD_BIT(KC_RCMD)){     position += 8; }
     clear_mods();
     if (record->event.pressed) {
-        register_code(custom_map[keycode][position])
+        register_code(custom_map[keycode - SR][position]);
     } else {
-      unregister_code(custom_map[keycode][position])
+      unregister_code(custom_map[keycode - SR][position]);
     }
     clear_mods();
     set_mods(saved_mods);
