@@ -22,7 +22,32 @@ enum unicode_names {
     INF,
     SNEK,
     POOP,
+    tada,
+    sad,
+    smile,
+    wink,
+    smirk,
+    kissf,
+    lol,
     ROFL,
+    angry,
+    cry,
+    shock,
+    sleep,
+    covid,
+    kiss,
+    heart,
+    high5,
+    point,
+    wave,
+    uthmb,
+    dthmb,
+    100,
+    frog,
+    dick,
+    hitc,
+    flip,
+    aflip,
     TFORE,
     BCAUS,
     ALPHA,
@@ -59,7 +84,32 @@ const uint32_t PROGMEM unicode_map[] = {
     [INF]   = 0x221E,  // ∞  (infinity)
     [SNEK]  = 0x1F40D, // 🐍
     [POOP]  = 0x1F4A9, // 💩
-    [ROFL]  = 0x1F923, // 🤣
+    [tada]  = 0x1F389, // 🎉 (party popper)
+    [sad]   = 0x1F623, // 😣 (persevering face)
+    [smile] = 0x1F60A, // 😊 (smiling face with smiling eyes)
+    [wink]  = 0x1F609, // 😉 (winking face)
+    [smirk] = 0x1F60F, // 😏 (smirking face)
+    [kissf] = 0x1F618, // 😘 (face throwing a kiss)
+    [lol]   = 0x1F606, // 😆 (smiling face with open mouth and tightly-closed eyes)
+    [ROFL]  = 0x1F923, // 🤣 (Rollingin On the Floor Laughing)
+    [angry] = 0x1F620, // 😠 (angry face)
+    [cry]   = 0x1F622, // 😢 (crying face)
+    [shock] = 0x1F632, // 😲 (astonished face)
+    [sleep] = 0x1F634, // 😴 (sleeping face)
+    [covid] = 0x1F637, // 😷 (face with medical mask)
+    [kiss]  = 0x1F48B, // 💋 (kiss mark)
+    [heart] = 0x2764,  // ❤ (red heart)
+    [high5] = 0x1F64C, // 🙌 (person raising both hands in celebration, ...)
+    [point] = 0x261D,  // ☝  (White up pointing index)
+    [wave]  = 0x1F44B, // 👋 (waving hand)
+    [uthmb] = 0x1F44D, // 👍
+    [dthmb] = 0x1F44E, // 👎
+    [100]   = 0x1F4AF, // 💯 (hundred points)
+    [frog]  = 0x1F438, // 🐸 (frog)
+    [dick]  = 0x1F346, // 🍆 (eggplant)
+    [hitc]  = 0x1F3AF, // 🎯 (	direct hit)
+    [flip]  = 0x00000, // (╯°□°）╯︵ ┻━┻
+    [aflip] = 0x00000, // (ノಠ痊ಠ)ノ彡┻━┻
     [TFORE] = 0x2234,  // ∴  (Therefore)
     [BCAUS] = 0x2235,  // ∵  (Because)
     [ALPHA] = 0x03B1,  // α  (Greek lowercase Alpha)
