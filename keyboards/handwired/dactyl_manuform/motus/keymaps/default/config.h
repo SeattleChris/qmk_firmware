@@ -38,5 +38,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define RGBLIGHT_SPLIT 27
 #define COMBO_COUNT 4
 #define COMBO_TERM 200
-#define CUSTOM_COUNT 47
 #define CUSTOM_MAX_DEPTH 4

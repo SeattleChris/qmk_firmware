@@ -137,7 +137,7 @@ const uint32_t PROGMEM unicode_map[] = {
 
 enum custom_keycodes {
     SR = SAFE_RANGE,
-    FOLD,
+    FOLD = SR,
     UNDMIN,
     COMMPL,
     DOTEXL,
@@ -182,9 +182,10 @@ enum custom_keycodes {
     BT_SYS,
     MS_SPD,
     MR1,
-    LAST_CUSTOM_KEYCODE
+    LAST_CUSTOM_KEYCODE,
+    NEW_SAFE_RANGE = LAST_CUSTOM_KEYCODE
 };
-const uint16_t PROGMEM custom_map[][CUSTOM_MAX_DEPTH] = {
+const uint16_t PROGMEM custom_map[LAST_CUSTOM_KEYCODE - SR][CUSTOM_MAX_DEPTH] = {
     // [NAME] = {key, shift_k,    ctl_k,    shift_ctl_k,    alt_k,    shift_alt_k,    alt_ctl_k,    shift_alt_ctl_k,
     //         cmd_k, shift_cmd_k,ctl_cmd_k,shift_ctl_cmd_k,alt_cmd_k,shift_alt_cmd_k,alt_ctl_cmd_k,shift_alt_ctl_cmd_k}
     [FOLD - SR]   = {LCTL(KC_LCBR), LCTL(KC_RCBR), LCTL(KC_LPRN), LCTL(KC_RPRN)},
@@ -233,7 +234,6 @@ const uint16_t PROGMEM custom_map[][CUSTOM_MAX_DEPTH] = {
     [MS_SPD - SR] = {KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2},
     [MR1 - SR]    = {DM_PLY1, DM_REC1, DM_RSTP},  // Dynamic Macro 1: Play, Start-Record, Stop-Record
 };
-
 #define LFNC TG(_SYMBOLS)
 #define RFNC TG(_SYMBOLS)
 #define NUMS TG(_NUMS)
@@ -242,22 +242,21 @@ const uint16_t PROGMEM custom_map[][CUSTOM_MAX_DEPTH] = {
 #define THETA  XP(LTHET, UTHET)
 // #define MR1 MO(_RAISE)
 // #define MR2 MO(_LOWER)
-
 enum combos {
     SHIFT_LOCK,
-    F_KEY_LAYER,
     NUM_LOCK,
-    SCROLL_LOCK
+    SCROLL_LOCK,
+    F_KEY_LAYER,
 };
-const uint16_t PROGMEM shift_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
-const uint16_t PROGMEM func_combo[] = {LFNC, RFNC, COMBO_END};
-const uint16_t PROGMEM nums_combo[] = {RFNC, NUMS, COMBO_END};
-const uint16_t PROGMEM scrl_combo[] = {LFNC, KC_LEAD, COMBO_END};
+const uint16_t PROGMEM shift_combo[3] = {KC_LSFT, KC_RSFT, COMBO_END};
+const uint16_t PROGMEM nums_combo[3] = {UNDMIN, NUMS, COMBO_END};
+const uint16_t PROGMEM scrl_combo[3] = {UNDMIN, KC_LEAD, COMBO_END};
+const uint16_t PROGMEM func_combo[3] = {LFNC, RFNC, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
   [SHIFT_LOCK]  = COMBO(shift_combo, KC_CAPSLOCK),
-  [F_KEY_LAYER]  = COMBO(func_combo, TG(_FUNCTION)),
   [NUM_LOCK]    = COMBO(nums_combo, KC_NLCK),
   [SCROLL_LOCK] = COMBO(scrl_combo, KC_SLCK),
+  [F_KEY_LAYER]  = COMBO(func_combo, TG(_FUNCTION)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -304,7 +303,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  // If keycode not in in custom_keycodes return normal (do nothing), else:
+  " If keycode in range of custom_keycodes, then set keys according to custom_map. "
   if (keycode >= SR && keycode < LAST_CUSTOM_KEYCODE) {
     uint8_t position = 0;
     uint8_t saved_mods = get_mods();
@@ -322,5 +321,5 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     set_mods(saved_mods);
     return false; // Skip all further processing of this key
   }
-  return true;
+  return true;  // let this key be processed elsewhere
 };
