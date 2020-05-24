@@ -108,8 +108,8 @@ const uint32_t PROGMEM unicode_map[] = {
     [frog]  = 0x1F438, // 🐸 (frog)
     [dick]  = 0x1F346, // 🍆 (eggplant)
     [hitc]  = 0x1F3AF, // 🎯 (	direct hit)
-    [flip]  = 0x00000, // (╯°□°）╯︵ ┻━┻
-    [aflip] = 0x00000, // (ノಠ痊ಠ)ノ彡┻━┻
+    // [flip]  = 0x00000, // (╯°□°）╯︵ ┻━┻
+    // [aflip] = 0x00000, // (ノಠ痊ಠ)ノ彡┻━┻
     [TFORE] = 0x2234,  // ∴  (Therefore)
     [BCAUS] = 0x2235,  // ∵  (Because)
     [ALPHA] = 0x03B1,  // α  (Greek lowercase Alpha)
@@ -132,7 +132,6 @@ const uint32_t PROGMEM unicode_map[] = {
     [DBPRM] = 0x2033,  // ″  (Double Prime)
     [TRPRM] = 0x2034,  // ‴  (Triple Prime)
     [QDPRM] = 0x2057,  // ⁗  (Quadruple Prime)
-
     // [max]= 0x10FFFF,
 };
 
@@ -238,7 +237,7 @@ const uint16_t PROGMEM custom_map[CUSTOM_COUNT][CUSTOM_MAX_DEPTH] = {
 #define LFNC TG(_SYMBOLS)
 #define RFNC TG(_SYMBOLS)
 #define NUMS TG(_NUMS)
-// #define BANGIR XP(BANG, IRONY)
+#define BANGIR XP(BANG, IRONY)
 #define INBANG XP(IBANG, IIBNG)
 #define THETA  XP(LTHET, UTHET)
 // #define MR1 MO(_RAISE)
@@ -308,7 +307,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // If keycode not in in custom_keycodes return normal (do nothing), else:
   if (keycode >= FIRST_CUSTOM_KEYCODE && keycode < LAST_CUSTOM_KEYCODE) {
     position = 0;
-    saved_mods = get_mods()
+    saved_mods = get_mods();
     if (saved_mods & MOD_BIT(KC_LSHIFT) || saved_mods & MOD_BIT(KC_RSHIFT)){ position += 1; }
     if (saved_mods & MOD_BIT(KC_LCTL) || saved_mods & MOD_BIT(KC_RCTL)){     position += 2; }
     if (saved_mods & MOD_BIT(KC_LALT) || saved_mods & MOD_BIT(KC_RALT)){     position += 4; }
