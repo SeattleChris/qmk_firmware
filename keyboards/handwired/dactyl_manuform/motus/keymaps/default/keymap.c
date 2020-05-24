@@ -260,7 +260,7 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_BASE] = LAYOUT_5x6(
+  [_BASE] = LAYOUT_4x6(
     FOLD   , KC_Q  , KC_W  , KC_E  , KC_R  , KC_T  ,               KC_Y  , KC_U  , KC_I  , KC_O  , KC_P  ,KC_PAUS,
     KC_LCTL, KC_A  , KC_S  , KC_D  , KC_F  , KC_G  ,               KC_H  , KC_J  , KC_K  , KC_L  ,KC_SCLN,KC_RCTL,
     KC_LSFT, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,               KC_N  , KC_M  , COMMPL, DOTEXL,KC_SLSH,KC_RSFT,
@@ -268,7 +268,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  UNDMIN , KC_TAB,KC_BSPC,    KC_DEL , KC_SPC, KC_ENT,
                                  KC_LCMD, LFNC  ,KC_LALT,    KC_RALT, RFNC  ,KC_RCMD
                ),
-  [_SYMBOLS] = LAYOUT_5x6(
+  [_SYMBOLS] = LAYOUT_4x6(
     _______, KC_GRV, QUOTCL, DQTCBR, ORAND , ASTPRC,               PWR   ,KC_PGUP, KC_UP , KC_END, BSLSPI,_______,
     _______, ATPHA , PAREN , BRAC  , CBRAC , INEQ  ,              KC_HOME,KC_LEFT,KC_DOWN,KC_RGHT,_______,_______,
     _______, HASHDO, XYCUT , DLRCP , IJPST , EQBETA,              ZERONE ,KC_PGDN,_______,_______,_______,_______,
@@ -276,7 +276,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   _______,_______,_______,  _______,_______,_______,
                                   _______,_______,_______,  _______,_______,_______
                ),
-  [_MOUSE] = LAYOUT_5x6(
+  [_MOUSE] = LAYOUT_4x6(
     _______,_______,_______,_______,_______,KC_BTN2,              MS_SPD ,KC_WH_U,KC_MS_U,KC_WH_R,KC_BTN4,_______,
     _______,_______,_______,_______,_______,_______,              KC_WH_L,KC_MS_L,KC_MS_D,KC_MS_R,_______,_______,
     _______,_______,_______,_______,_______,KC_BTN1,              KC_BTN3,KC_WH_D,_______,_______,_______,_______,
@@ -284,7 +284,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  _______,_______,_______,    _______,_______,_______,
                                  _______,_______,_______,    _______,_______,_______
                ),
-  [_FUNCTION] = LAYOUT_5x6(
+  [_FUNCTION] = LAYOUT_4x6(
     _______,_______,_______,_______,_______, BT_SYS,              MED_UP , KC_F7 , KC_F8 , KC_F9 , KC_F10,_______,
     _______,_______,_______,_______,_______,_______,              MED_MP , KC_F4 , KC_F5 , KC_F6 , KC_F11,_______,
     _______,_______,_______,_______,_______, BRIGHT,              MED_DN , KC_F1 , KC_F2 , KC_F3 , KC_F12,_______,
@@ -292,7 +292,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  _______,_______,_______,    _______,_______,_______,
                                  _______,_______,_______,    _______,_______,_______
                ),
-  [_NUMS] = LAYOUT_5x6(
+  [_NUMS] = LAYOUT_4x6(
     _______,_______,_______,_______,_______, THETA ,               PWRT  , PAD_7 , PAD_8 , PAD_9 , MINSPI,_______,
     _______,_______,_______,_______,_______,_______,               PLSAST, PAD_4 , PAD_5 , PAD_6 ,KC_SCLN,_______,
     _______,_______,_______,_______,_______, PAD_EQ,               PAD_0 , PAD_1 , PAD_2 , PAD_3 , DIVPRC,_______,
