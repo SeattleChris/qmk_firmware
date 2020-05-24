@@ -303,7 +303,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  " If keycode in range of custom_keycodes, then set keys according to custom_map. "
+  // If keycode in range of custom_keycodes, then set keys according to custom_map.
   if (keycode >= SR && keycode < LAST_CUSTOM_KEYCODE) {
     uint8_t position = 0;
     uint8_t saved_mods = get_mods();
