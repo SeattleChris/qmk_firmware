@@ -1,8 +1,18 @@
-Dactyl Manuform (4x5, 5x6, 5x7, 6x6)
-======
-the [Dactyl-Manuform](https://github.com/tshort/dactyl-keyboard) is a split curved keyboard based on the design of [adereth dactyl](https://github.com/adereth/dactyl-keyboard) and thumb cluster design of the [manuform](https://geekhack.org/index.php?topic=46015.0) keyboard, the hardware is similar to the let's split keyboard. all information needed for making one is in the first link.
-![Imgur](https://i.imgur.com/7y0Vbyd.jpg)
+# Dactyl Ergo-Code (4x6, 5x6)
 
+======
+
+The [Dactyl Ergo-Code](https://github.com/SeattleChris/ergo-code) is a split curved keyboard with an opposable thumb cluster. There are various options for the physical layout and build with can be set via the parameters in that Clojure application code. In comparison to the prior works this builds on top of, this project adds additional features, parameterization, and updated design functions.
+
+The Dactyl Ergo-Code is an extension of the [Tom Short's Dactyl ManuForm](https://github.com/tshort/dactyl-keyboard), which itself built on the Clojure code of [adereth dactyl](https://github.com/adereth/dactyl-keyboard) and thumb cluster design of the [manuform](https://geekhack.org/index.php?topic=46015.0) keyboard. Consult the general [Dactyl-ManuForm readme](../readme.md).
+
+## Keyboard Layout
+
+The build code allows any of the columns to have or not have a key on the "last row" (the row closest to the user). The layouts defined here for QMK tend to have three columns with "last row" keys, where other Dactyl-ManuForm layouts typically have only two.
+
+The build code allows any of the columns to have or not have a key on the "first row" (the row furthest from the user). Other Dactyl-Manuform builds do not tend to have this option, such that all columns will have a first row key. The default for Dactyl Ergo-Code, for layouts bigger than 4x6, is to NOT have a first row key on columns where the pinkie finger also needs to reach to the side. For layouts at the 4x6 size or smaller, the default is to assume there is a first row key for each column. 
+
+All possible combinations of first row and last row keys are possible as settings in the build code.
 
 ## First Time Setup
 
@@ -27,10 +37,9 @@ dactyl_manuform_YOUR_LAYOUT_YOUR_KEYMAP_NAME.hex
 
 For more information on customizing keymaps, take a look at the primary documentation for [Customizing Your Keymap](/docs/faq_keymap.md) in the main readme.md.
 
-
 ## Keymaps
 
-### [Keymaps 4x5](/keyboards/handwired/dactyl_manuform/4x5/keymaps/)
+### [LAYOUT_5x6](/keyboards/handwired/dactyl_manuform/4x5/keymaps/)
 
 #### Default
 Simple QWERTY layout with 3 Layers.
