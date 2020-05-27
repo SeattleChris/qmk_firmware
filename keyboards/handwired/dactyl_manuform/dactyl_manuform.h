@@ -12,8 +12,10 @@
     #include "6x6.h"
 #elif KEYBOARD_handwired_dactyl_manuform_dmote_62key
     #include "62key.h"
-#elif KEYBOARD_handwired_dactyl_manuform_motus
-    #include "motus.h"
+#elif KEYBOARD_handwired_dactyl_manuform_ergocode_LAYOUT_4x6
+    #include "ergocode.h"
+#elif KEYBOARD_handwired_dactyl_manuform_ergocode_LAYOUT_5x6
+    #include "ergocode.h"
 #endif
 
 #include "quantum.h"
