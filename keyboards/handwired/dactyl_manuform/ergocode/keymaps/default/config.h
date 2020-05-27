@@ -74,7 +74,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define LEADER_TIMEOUT 300  // how long before the leader key times out. If you’re having issues finishing the sequence before it times out, you may need to increase the timeout setting. Or you may want to enable the LEADER_PER_KEY_TIMING option, which resets the timeout after each key is tapped.
 // #define LEADER_PER_KEY_TIMING  // sets the timer for leader key chords to run on each key press rather than overall
 // #define LEADER_KEY_STRICT_KEY_PROCESSING  // Disables keycode filtering for Mod-Tap and Layer-Tap keycodes. Eg, if you enable this, you would need to specify MT(MOD_CTL, KC_A) if you want to use KC_A.
-#define CUSTOM_MAX_DEPTH 4
+
+/* Custom Key Feature: can set a base and also set shift, ctrl, or any combination of mod keys.
+   The key name should be an enum called custom_keycodes. Can set mod variations in an array in the following order:
+    {base_k, shift_k,     ctl_k,     shift_ctl_k,     alt_k,     shift_alt_k,     alt_ctl_k,     shift_alt_ctl_k, /
+     cmd_k , shift_cmd_k, ctl_cmd_k, shift_ctl_cmd_k, alt_cmd_k, shift_alt_cmd_k, alt_ctl_cmd_k, shift_alt_ctl_cmd_k}
+ */
+#define CUSTOM_MAX_DEPTH 4  // This is the maximum depth of mods defined for any custom key, but they can be shorter.
+
 /* Mouse Key Options */
 #define MOUSEKEY_INTERVAL 20
 #define MOUSEKEY_DELAY 0
