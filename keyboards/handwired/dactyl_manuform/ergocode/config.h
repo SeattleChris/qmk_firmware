@@ -27,13 +27,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Unset some things created by Dactyl_Manuform config.h */
 #ifdef LOCKING_SUPPORT_ENABLE  // Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap
-#undef LOCKING_SUPPORT_ENABLE
+  #undef LOCKING_SUPPORT_ENABLE
 #endif
 #ifdef LOCKING_RESYNC_ENABLE  // Locking resynchronize hack
-#undef LOCKING_RESYNC_ENABLE
+  #undef LOCKING_RESYNC_ENABLE
 #endif
 #ifdef PERMISSIVE_HOLD  // Enables This makes it easier for fast typists to use dual-function keys
-#undef PERMISSIVE_HOLD
+ #undef PERMISSIVE_HOLD
 #endif
 
 /* Split Keyboard Options */

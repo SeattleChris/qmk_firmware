@@ -1,5 +1,5 @@
 /*
-Copyright 2012 Jun Wako <wakojun@gmail.com>
+Copyright 2020 Chris L Chapman - https://github.com/SeattleChris
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -47,29 +47,34 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define USB_POLLING_INTERVAL_MS 10  // sets the USB polling rate in milliseconds for the keyboard, mouse, and shared (NKRO/media keys) interfaces
 // #define F_SCL 100000L  // sets the I2C clock rate speed for keyboards using I2C. The default is 400000L, except for keyboards using split_common, where the default is 100000L.
 
-/* Feature Overide Options */
+/* ***************************************** */
+/* Feature Set Exclusion and Overide Options */
+/* ***************************************** */
 // #define LOCKING_SUPPORT_ENABLE  // mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap
 // #define LOCKING_RESYNC_ENABLE  // tries to keep switch state consistent with keyboard LED state
 // #define IS_COMMAND() (get_mods() == MOD_MASK_SHIFT)  // key combination that allows the use of magic commands (useful for debugging)
 // #define NO_DEBUG  // disable debugging
 // #define NO_PRINT  // disable printing/debugging using hid_listen
 // #define NO_ACTION_LAYER  // disable layers
-#define NO_ACTION_TAPPING  // disable tap dance and other tapping features
-#define NO_ACTION_ONESHOT  // disable one-shot modifiers
 // #define NO_ACTION_MACRO  // disable old-style macro handling using MACRO(), action_get_macro() (deprecated)
 // #define NO_ACTION_FUNCTION  // disable old-style function handling using fn_actions, action_function() (deprecated)
 // #define FORCE_NKRO  // NKRO by default requires to be turned on, this forces it on during keyboard startup regardless of EEPROM setting. NKRO can still be turned off but will be turned on again if the keyboard reboots.
 // #define STRICT_LAYER_RELEASE  // force a key release to be evaluated using the current layer stack instead of remembering which layer it came from (used for advanced cases)
+// #ifdef NO_ACTION_TAPPING
+//   #undef NO_ACTION_TAPPING  // disabled as default: tap dance and other tapping features
+// #define NO_ACTION_TAPPING
+// #ifdef NO_ACTION_ONESHOT
+//   #undef NO_ACTION_ONESHOT  // disabled as default: one-shot modifiers
 
-/* Other Split Keyboard Options */
-
-/* ********************** */
-/* Possible User Settings */
-/* ********************** */
+/* ***************************************** */
+/*          Possible User Settings           */
+/* ***************************************** */
 #define COMBO_COUNT 4  // Set this to the number of combos that you’re using in the Combo feature.
 #define COMBO_TERM 200  // how long for the Combo keys to be detected. Defaults to TAPPING_TERM if not defined.
+// #define LEADER_TIMEOUT 300  // how long before the leader key times out. If you’re having issues finishing the sequence before it times out, you may need to increase the timeout setting. Or you may want to enable the LEADER_PER_KEY_TIMING option, which resets the timeout after each key is tapped.
+// #define LEADER_PER_KEY_TIMING  // sets the timer for leader key chords to run on each key press rather than overall
+// #define LEADER_KEY_STRICT_KEY_PROCESSING  // Disables keycode filtering for Mod-Tap and Layer-Tap keycodes. Eg, if you enable this, you would need to specify MT(MOD_CTL, KC_A) if you want to use KC_A.
 #define CUSTOM_MAX_DEPTH 4
-
 /* Mouse Key Options */
 #define MOUSEKEY_INTERVAL 20
 #define MOUSEKEY_DELAY 0
@@ -77,7 +82,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_MAX_SPEED 7
 #define MOUSEKEY_WHEEL_DELAY 0
 
-/* Behaviors That Can Be Configured */
+/* Behaviors That Can Be Configured if related features sets are turned on. */
 // #define TAPPING_TERM 200  // how long before a tap becomes a hold, if set above 500, a key tapped during the tapping term will turn it into a hold too
 // #define TAPPING_TERM_PER_KEY  // enables handling for per key TAPPING_TERM settings
 // #define RETRO_TAPPING  // tap anyway, even after TAPPING_TERM, if there was no other key interruption between press and release See Retro Tapping for details
@@ -88,9 +93,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY  // enables handling for per key IGNORE_MOD_TAP_INTERRUPT settings
 // #define TAPPING_FORCE_HOLD  // makes it possible to use a dual role key as modifier shortly after having been tapped. See Tapping Force Hold. Breaks any Tap Toggle functionality (TT or the One Shot Tap Toggle)
 // #define TAPPING_FORCE_HOLD_PER_KEY  // enables handling for per key TAPPING_FORCE_HOLD settings
-// #define LEADER_TIMEOUT 300  // how long before the leader key times out. If you’re having issues finishing the sequence before it times out, you may need to increase the timeout setting. Or you may want to enable the LEADER_PER_KEY_TIMING option, which resets the timeout after each key is tapped.
-// #define LEADER_PER_KEY_TIMING  // sets the timer for leader key chords to run on each key press rather than overall
-// #define LEADER_KEY_STRICT_KEY_PROCESSING  // Disables keycode filtering for Mod-Tap and Layer-Tap keycodes. Eg, if you enable this, you would need to specify MT(MOD_CTL, KC_A) if you want to use KC_A.
 // #define ONESHOT_TIMEOUT 300  // how long before oneshot times out
 // #define ONESHOT_TAP_TOGGLE 2  // how many taps before oneshot toggle is triggered
 // #define QMK_KEYS_PER_SCAN 4  // Allows sending more than one key per scan. By default, only one key event gets sent via process_record() per scan. This has little impact on most typing, but if you’re doing a lot of chords, or your scan rate is slow to begin with, you can have some delay in processing key events. Each press and release is a separate event. For a keyboard with 1ms or so scan times, even a very fast typist isn’t going to produce the 500 keystrokes a second needed to actually get more than a few ms of delay from this. But if you’re doing chording on something with 3-4ms scan times? You probably want this.
