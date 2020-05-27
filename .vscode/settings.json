@@ -9,6 +9,7 @@
         "**/*.bin": true
     },
     "files.associations": {
+        "*.html": "html",
         "*.h": "c",
         "*.c": "c",
         "*.inc": "c",
@@ -16,7 +17,9 @@
         "*.hpp": "cpp",
         "xstddef": "c",
         "type_traits": "c",
-        "utility": "c"
+        "utility": "c",
+        "atomic": "c",
+        "cstdint": "c"
     },
     "[markdown]": {
         "editor.trimAutoWhitespace": false,
@@ -26,5 +29,46 @@
         "activityBar.background": "#550C49",
         "titleBar.activeBackground": "#771166",
         "titleBar.activeForeground": "#FFFBFE"
-    }
+    },
+    "cSpell.words": [
+        "ATPHA",
+        "BRAC",
+        "BSLSPI",
+        "BSPC",
+        "CBRAC",
+        "DLRCP",
+        "DOTEXL",
+        "DQTCBR",
+        "EQBETA",
+        "GAMMU",
+        "HASHDO",
+        "IJPST",
+        "INEQ",
+        "LALT",
+        "LCMD",
+        "LCTL",
+        "LFNC",
+        "LSFT",
+        "Lamda",
+        "Motus",
+        "NLCK",
+        "ORAND",
+        "PADCMM",
+        "PAUS",
+        "PGDN",
+        "PGUP",
+        "PWRT",
+        "QUOTCL",
+        "RALT",
+        "RCTL",
+        "RFNC",
+        "RGHT",
+        "RSFT",
+        "SCLN",
+        "SLSH",
+        "XYCUT",
+        "ZEROMG",
+        "ZERONE"
+    ],
+    "C_Cpp.errorSquiggles": "Disabled"
 }
