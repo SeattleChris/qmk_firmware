@@ -5,7 +5,7 @@
     "width": 16,
     "height": 7,
     "layouts": {
-        "LAYOUT_6x6": {
+        "LAYOUT_5x6": {
             "layout": [
                 {"label":"L01", "x":1, "y":0},
                 {"label":"L02", "x":2, "y":0},
@@ -73,7 +73,7 @@
                 {"label":"R55", "x":11, "y":6}
             ]
         },
-        "LAYOUT_5x6": {
+        "LAYOUT_4x6": {
             "layout": [
                 {"label":"L00", "x":0, "y":0},
                 {"label":"L01", "x":1, "y":0},
